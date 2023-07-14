@@ -1,0 +1,54 @@
+.login_page_start{
+    text-align: center;
+    display: block;
+    margin: auto;
+    width: 600px;
+    box-shadow: 0 0 5px;
+    border-radius: 10px;
+}
+.login_page_start h2{
+    margin-top: 40px;
+}
+.login_page_start input{
+    width: 350px;
+    height: 45px;
+    padding: 10px;
+    margin: 20px;
+    border-radius: 10px;
+}
+.login_page_start button{
+ width: 150px;
+ height: 45px;
+ margin-bottom: 20px;
+ border-radius: 10px;
+}
+
+@media (max-width:610px){
+    .login_page_start{
+        width: 400px;
+    }
+}
+@media (max-width:418px){
+    .login_page_start{
+        width: 350px;
+    }
+    .login_page_start input{
+        width: 300px;
+    }
+}
+@media (max-width:366px){
+    .login_page_start{
+        width: 300px;
+    }
+    .login_page_start input{
+        width: 250px;
+    }
+}
+@media (max-width:310px){
+    .login_page_start{
+        width: 250px;
+    }
+    .login_page_start input{
+        width: 200px;
+    }
+}

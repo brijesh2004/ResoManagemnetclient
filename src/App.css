@@ -36,3 +36,14 @@
     transform: rotate(360deg);
   }
 }
+
+.divpage{
+  display: flex;
+}
+
+@media (max-width:990px){
+  .divpage{
+    display: flex;
+    flex-direction: column;
+  }
+}
