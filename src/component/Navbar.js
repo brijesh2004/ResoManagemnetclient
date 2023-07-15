@@ -15,9 +15,11 @@ export default function Navbar() {
     const data = res.json();
     if(res.status===401 || !data){
         setIsLogin(false);
+        console.log("false");
     }
     else{
       setIsLogin(true);
+      console.log("true");
     }
   }
 useEffect(()=>{
