@@ -8,11 +8,11 @@ const Dinner = () => {
   const [name,setName] = useState("");
   const [price , setPrice] = useState(0);
   const findDinner = async () =>{
-   const res = await fetch('http://localhost:7000/dinner' ,{
+   const res = await fetch('https://restomanagementserver.onrender.com/dinner' ,{
     method:'GET',
     credentials:'include',
     headers:{
-      'Origin':['http://localhost:7000'],
+      'Origin':['https://restomanagementserver.onrender.com'],
       'Content-Type':'application/json'
     }
    })
