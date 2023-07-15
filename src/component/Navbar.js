@@ -13,6 +13,7 @@ export default function Navbar() {
       }
     })
     const data = res.json();
+    console.log(data);
     if(res.status===401 || !data){
         setIsLogin(false);
         console.log("false");
