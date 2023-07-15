@@ -12,7 +12,7 @@ export default function Navbar() {
         "Content-Type":"application/json"
       }
     })
-    const data = res.json();
+    const data =await res.json();
     console.log(data);
     if(res.status===401 || !data){
         setIsLogin(false);
