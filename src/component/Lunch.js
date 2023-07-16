@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import '../styling/breakfast.css';
 import '../styling/bottom.css';
+import Loader from './Loader';
 import Bottom from './Bottom';
 
 const Lunch = () => {
@@ -8,17 +9,20 @@ const Lunch = () => {
   const [isordered , setOrdered] = useState(false);
   const [name,setName] = useState("");
   const [price , setPrice] = useState(0);
+  const [isloaded , setIsloader] = useState(false);
   const findlunchdata = async () =>{
-    const res = await fetch('https://restomanagementserver.onrender.com/lunch',{
+    const res = await fetch('http://localhost:7000/lunch',{
       credentials:'include',
       method:'GET',
       headers:{
-        "Origin":['https://restomanagementserver.onrender.com'],
+        "Origin":['http://localhost:7000'],
         "Content-Type":'application/json'
       }
     })
+    setIsloader(false)
     const data = await res.json();
-    console.log(data);
+    // console.log(data);
+    setIsloader(true)
     setCusData(data);
   }
   useEffect(()=>{
@@ -26,7 +30,10 @@ const Lunch = () => {
   },[])
   return (
     <>
-   { !isordered&& <div>
+    {
+      !isloaded&&<Loader/>
+    }
+   { !isordered&&isloaded&& <div>
     <center><h1>Lunch</h1></center>
     <div className='breakfast_page'>
        {Array.isArray(cusdata)&&cusdata.map((elem ,index)=>(

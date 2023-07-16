@@ -3,23 +3,27 @@ import '../styling/breakfast.css';
 import '../styling/bottom.css';
 import '../styling/login.css';
 import Bottom from './Bottom';
+import Loader from './Loader';
 
 const Breakfast = () => {
   const [cusdata,setCusData] = useState({});
   const [isordered , setOrdered] = useState(false);
   const [name,setName] = useState("");
   const [price , setPrice] = useState(0);
+  const [isloaded , setIsloader] = useState(false);
   const findbreakfast =async () =>{
-    const req = await fetch('https://restomanagementserver.onrender.com/breakfast',{
+    const req = await fetch('http://localhost:7000/breakfast',{
       method:'GET',
       credentials:'include',
       headers:{
-        'Origin':['https://restomanagementserver.onrender.com'],
+        'Origin':['http://localhost:7000'],
         'Content-Type':'application/json'
       }
     })
+    setIsloader(false);
     const data =await req.json();
     setCusData(data);
+    setIsloader(true);
     // console.log(data);
   }
   useEffect(()=>{
@@ -27,7 +31,11 @@ const Breakfast = () => {
   },[]);
   return (
     <>
-   { !isordered&& <div>
+    {
+      !isloaded &&<Loader/>
+    }
+
+   { !isordered&&isloaded&& <div>
     <center><h1>Breakfast</h1></center>
     <div className='breakfast_page'>
        {Array.isArray(cusdata)&&cusdata.map((elem ,index)=>(

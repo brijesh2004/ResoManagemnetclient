@@ -2,6 +2,7 @@ import React from 'react'
 import '../styling/breakfast.css';
 import {useNavigate} from 'react-router-dom';
 import Bottom from './Bottom';
+import Loader from './Loader';
 
 const Home = () => {
   const navigate = useNavigate();
@@ -55,8 +56,9 @@ const Home = () => {
         </div>
         </div>
         <center><button className='buy_btn' onClick={()=>{navigate("/dinner")}}>View All</button></center>
-
+    <Loader/>
         <Bottom/>
+
     </>
 
 

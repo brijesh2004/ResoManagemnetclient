@@ -2,29 +2,35 @@ import React, { useEffect, useState } from 'react'
 import '../styling/breakfast.css';
 import '../styling/bottom.css';
 import Bottom from './Bottom';
+import Loader from './Loader';
 const Dinner = () => {
   const [cusdata , setCusData] = useState({});
   const [isordered , setOrdered] = useState(false);
   const [name,setName] = useState("");
   const [price , setPrice] = useState(0);
+  const [isloaded , setIsloader] = useState(false);
   const findDinner = async () =>{
-   const res = await fetch('https://restomanagementserver.onrender.com/dinner' ,{
+   const res = await fetch('http://localhost:7000/dinner' ,{
     method:'GET',
     credentials:'include',
     headers:{
-      'Origin':['https://restomanagementserver.onrender.com'],
+      'Origin':['http://localhost:7000'],
       'Content-Type':'application/json'
     }
    })
+   setIsloader(false)
    const data = await res.json();
   setCusData(data);
+  setIsloader(true);
   }
   useEffect(()=>{
     findDinner();
   },[])
   return (
-    <>
-   { !isordered&& <div>
+    <>{
+      !isloaded&&<Loader/>
+    }
+   { !isordered&&isloaded&& <div>
     <center><h1>Dinner</h1></center>
     <div className='breakfast_page'>
        {Array.isArray(cusdata)&&cusdata.map((elem ,index)=>(
