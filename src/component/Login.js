@@ -6,11 +6,11 @@ const Login = () => {
   const [email , setEmail] = useState("");
   const [password , setPassword] = useState("");
   const loginUser = async () =>{
-    const req = await fetch("https://restomanagementserver.onrender.com//login",{
+    const req = await fetch("https://restomanagementserver.onrender.com/login",{
       method:"POST",
       credentials:"include",
       headers:{
-        "Origin":['https://restomanagementserver.onrender.com/'],
+        "Origin":['https://restomanagementserver.onrender.com'],
         "Content-Type":"application/json"
       },
       body:JSON.stringify({

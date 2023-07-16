@@ -10,11 +10,11 @@ const Breakfast = () => {
   const [name,setName] = useState("");
   const [price , setPrice] = useState(0);
   const findbreakfast =async () =>{
-    const req = await fetch('https://restomanagementserver.onrender.com//breakfast',{
+    const req = await fetch('https://restomanagementserver.onrender.com/breakfast',{
       method:'GET',
       credentials:'include',
       headers:{
-        'Origin':['https://restomanagementserver.onrender.com/'],
+        'Origin':['https://restomanagementserver.onrender.com'],
         'Content-Type':'application/json'
       }
     })

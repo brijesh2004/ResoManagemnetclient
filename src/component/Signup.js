@@ -17,11 +17,11 @@ const Signup = () => {
     e.preventDefault();
     const {name,email,password , cpassword} = user;
     console.log(name,email,password,cpassword)
-    const res = await fetch("https://restomanagementserver.onrender.com//register" , {
+    const res = await fetch("https://restomanagementserver.onrender.com/register" , {
       method:'POST',
       credentials:'include',
       headers:{
-        'Origin':['https://restomanagementserver.onrender.com/'],
+        'Origin':['https://restomanagementserver.onrender.com'],
         'Content-Type':"application/json"
       },
       body: JSON.stringify({
