@@ -4,11 +4,11 @@ export default function Navbar() {
   // const [showBasic, setShowBasic] = useState(false);
   const [islogin , setIsLogin] = useState(false);
   const isLogin = async ()=>{
-    const res = await fetch('http://localhost:7000/navbar',{
+    const res = await fetch('https://restomanagementserver.onrender.com/navbar',{
       method:'GET',
       credentials:'include',
       headers:{
-        'Origin':['http://localhost:7000'],
+        'Origin':['https://restomanagementserver.onrender.com'],
         "Content-Type":"application/json"
       }
     })

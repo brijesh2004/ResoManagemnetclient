@@ -12,11 +12,11 @@ const Breakfast = () => {
   const [price , setPrice] = useState(0);
   const [isloaded , setIsloader] = useState(false);
   const findbreakfast =async () =>{
-    const req = await fetch('http://localhost:7000/breakfast',{
+    const req = await fetch('https://restomanagementserver.onrender.com/breakfast',{
       method:'GET',
       credentials:'include',
       headers:{
-        'Origin':['http://localhost:7000'],
+        'Origin':['https://restomanagementserver.onrender.com'],
         'Content-Type':'application/json'
       }
     })
