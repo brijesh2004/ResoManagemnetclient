@@ -7,6 +7,7 @@ const Signup = () => {
   const [user , setUser] = useState({
     name:"",email:"",password:"",cpassword:""
   });
+  const [registerbtn , setRegisterBtn] = useState("Register");
   let name,value;
   const handleInputs = (e) =>{
     name = e.target.name;
@@ -16,12 +17,13 @@ const Signup = () => {
   const registerUser = async (e) => {
     e.preventDefault();
     const {name,email,password , cpassword} = user;
-    console.log(name,email,password,cpassword)
-    const res = await fetch("https://restomanagementserver.onrender.com/register" , {
+    // console.log(name,email,password,cpassword)
+    setRegisterBtn("Registering ...");
+    const res = await fetch("http://https://restomanagementserver.onrender.com/register" , {
       method:'POST',
       credentials:'include',
       headers:{
-        'Origin':['https://restomanagementserver.onrender.com'],
+        'Origin':['http://https://restomanagementserver.onrender.com'],
         'Content-Type':"application/json"
       },
       body: JSON.stringify({
@@ -29,7 +31,8 @@ const Signup = () => {
       })
     })
     const data =await res.json();
-    console.log(data);
+    setRegisterBtn("Register");
+    // console.log(data);
     if(res.status===422){
       alert("User already exist");
     }
@@ -51,7 +54,7 @@ const Signup = () => {
         <input type="email" placeholder='Enter Your Email' name='email' onChange={handleInputs} value={user.email}/><br />
         <input type="password" placeholder='Create The Password' name='password' onChange={handleInputs} value={user.password}/><br />
         <input type="password" placeholder='Enter Again Password' name='cpassword' onChange={handleInputs} value={user.cpassword}/><br />
-        <button onClick={registerUser}>Register</button>
+        <button onClick={registerUser}>{registerbtn}</button>
       </div>
     </>
   )

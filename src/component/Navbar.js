@@ -4,25 +4,26 @@ export default function Navbar() {
   // const [showBasic, setShowBasic] = useState(false);
   const [islogin , setIsLogin] = useState(false);
   const isLogin = async ()=>{
-    const res = await fetch('https://restomanagementserver.onrender.com/navbar',{
+    const res = await fetch('http://https://restomanagementserver.onrender.com/navbar',{
       method:'GET',
       credentials:'include',
       headers:{
-        'Origin':['https://restomanagementserver.onrender.com'],
+        'Origin':['http://https://restomanagementserver.onrender.com'],
         "Content-Type":"application/json"
       }
     })
     const data =await res.json();
-    console.log(data);
+    // console.log(data);
     if(res.status===401 || !data){
         setIsLogin(false);
-        console.log("false");
+        // console.log("false");
     }
     else{
       setIsLogin(true);
-      console.log("true");
+      // console.log("true");
     }
   }
+  
 useEffect(()=>{
   isLogin();
 },[]);
@@ -44,7 +45,7 @@ useEffect(()=>{
         </li>
         {
           islogin&& <li className="nav-item">
-          <Link className="nav-link" to="/logout">Logout</Link>
+          <Link className="nav-link" to="/logout" >Logout</Link>
         </li>
         }
         {

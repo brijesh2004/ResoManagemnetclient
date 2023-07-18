@@ -9,6 +9,7 @@ import Signup from './component/Signup';
 import Breakfast from './component/Breakfast';
 import Lunch from './component/Lunch';
 import Dinner from './component/Dinner';
+import Logout from './component/Logout';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
           <Route exact path='/breakfast' element={<Breakfast/>}></Route>
           <Route exact path='/lunch' element={<Lunch/>}></Route>
           <Route exact path='/dinner' element={<Dinner/>}></Route>
+          <Route exact path='/logout' element={<Logout/>}></Route>
    </Routes>
    </Router>
     </>
