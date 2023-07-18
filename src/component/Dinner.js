@@ -18,11 +18,11 @@ const Dinner = () => {
   const [price , setPrice] = useState(0);
   const [isloaded , setIsloader] = useState(false);
   const findDinner = async () =>{
-   const res = await fetch('http://https://restomanagementserver.onrender.com/dinner' ,{
+   const res = await fetch('https://restomanagementserver.onrender.com/dinner' ,{
     method:'GET',
     credentials:'include',
     headers:{
-      'Origin':['http://https://restomanagementserver.onrender.com'],
+      'Origin':['https://restomanagementserver.onrender.com'],
       'Content-Type':'application/json'
     }
    })
@@ -42,11 +42,11 @@ const Dinner = () => {
    const ordernow = async () =>{
     setPayButton("Paying ...");
     const {mobile1 , mobile2 , address , pincode}  = payment;
-    const res = await fetch('http://https://restomanagementserver.onrender.com/ordernow',{
+    const res = await fetch('https://restomanagementserver.onrender.com/ordernow',{
       credentials:"include",
       method:'POST',
       headers:{
-        "Origin":['http://https://restomanagementserver.onrender.com'],
+        "Origin":['https://restomanagementserver.onrender.com'],
         "Content-Type":"application/json"
       },
       body:JSON.stringify({

@@ -5,11 +5,11 @@ import { Link } from 'react-router-dom';
 const Bottom = () => {
   const [email , setEmail] = useState("");
     const sendEmail = async ()=>{
-      const req = await fetch("http://https://restomanagementserver.onrender.com/getnewsdaily",{
+      const req = await fetch("https://restomanagementserver.onrender.com/getnewsdaily",{
         method:'POST',
         credentials:'include',
         headers:{
-          'Origin':['http://https://restomanagementserver.onrender.com'],
+          'Origin':['https://restomanagementserver.onrender.com'],
           "Content-Type":'application/json'
         },
         body:JSON.stringify({

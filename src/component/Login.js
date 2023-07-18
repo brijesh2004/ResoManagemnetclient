@@ -8,11 +8,11 @@ const Login = () => {
    const [button , setButton] = useState("Login");
   const loginUser = async () =>{
     setButton("Login ...")
-    const req = await fetch("http://https://restomanagementserver.onrender.com/login",{
+    const req = await fetch("https://restomanagementserver.onrender.com/login",{
       method:"POST",
       credentials:"include",
       headers:{
-        "Origin":['http://https://restomanagementserver.onrender.com'],
+        "Origin":['https://restomanagementserver.onrender.com'],
         "Content-Type":"application/json"
       },
       body:JSON.stringify({

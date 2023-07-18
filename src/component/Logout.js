@@ -4,11 +4,11 @@ import { useNavigate } from 'react-router-dom';
 const Logout = () => {
     const navigate = useNavigate();
     const logoutfun = async () =>{
-        const res = await fetch('http://https://restomanagementserver.onrender.com/logout',{
+        const res = await fetch('https://restomanagementserver.onrender.com/logout',{
             method:'GET',
             credentials:'include',
             headers:{
-                'Origin':['http://https://restomanagementserver.onrender.com'],
+                'Origin':['https://restomanagementserver.onrender.com'],
                 "Content-Type":'application/json'
             }
         })
