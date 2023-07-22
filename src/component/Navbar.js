@@ -44,9 +44,14 @@ useEffect(()=>{
           <Link className="nav-link" to="/types">Service</Link>
         </li>
         {
-          islogin&& <li className="nav-item">
+          islogin&& <div className='divpage'><li className="nav-item">
           <Link className="nav-link" to="/logout" >Logout</Link>
         </li>
+        <li className="nav-item">
+          <Link className="nav-link" to="/profile">Profile</Link>
+        </li>
+        </div>
+          
         }
         {
           !islogin&&<div className='divpage'> <li className="nav-item">
@@ -55,6 +60,7 @@ useEffect(()=>{
         <li className="nav-item">
           <Link className="nav-link" to="/signup">Signup</Link>
         </li>
+        
         </div>
         }
         <li className="nav-item dropdown">

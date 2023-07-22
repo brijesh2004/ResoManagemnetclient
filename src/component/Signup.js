@@ -43,7 +43,7 @@ const Signup = () => {
     }
     else{
       alert("Registration successfull");
-      navigate("/");
+      navigate("/login");
     }
   }
   return (

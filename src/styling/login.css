@@ -52,3 +52,27 @@
         width: 200px;
     }
 }
+.order_element{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.order_list{
+    width: 250px;
+    border: 1px solid red;
+    text-align: center;
+    margin: 20px;
+}
+
+.upload_image{
+    text-align: center;
+}
+
+.about_the_user{
+    text-align: center;
+}
+.about_the_user img{
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+}
