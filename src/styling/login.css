@@ -1,14 +1,18 @@
 .login_page_start{
-    text-align: center;
     display: block;
     margin: auto;
-    width: 600px;
+    width: fit-content;
     box-shadow: 0 0 5px;
     border-radius: 10px;
 }
 .login_page_start h2{
+    text-align: center;
     margin-top: 40px;
 }
+.login_page_start label{
+    margin-left: 20px;
+}
+
 .login_page_start input{
     width: 350px;
     height: 45px;
@@ -21,6 +25,7 @@
  height: 45px;
  margin-bottom: 20px;
  border-radius: 10px;
+ margin-left: 26%;
 }
 
 @media (max-width:610px){
@@ -59,8 +64,10 @@
 }
 .order_list{
     width: 250px;
-    border: 1px solid red;
+    border: 1px solid;
+    box-shadow: 0 0 20px black;
     text-align: center;
+    border-radius: 10px;
     margin: 20px;
 }
 

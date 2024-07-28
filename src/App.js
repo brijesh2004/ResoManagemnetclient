@@ -14,7 +14,7 @@ import Profile from './component/Profile';
 
 function App() {
   return (
-    <>
+    <div>
       <Router>
 <Navbar/>
     <Routes>
@@ -29,7 +29,7 @@ function App() {
           <Route exact path='/profile' element={<Profile/>}></Route>
    </Routes>
    </Router>
-    </>
+    </div>
   );
 }
 

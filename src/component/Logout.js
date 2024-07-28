@@ -3,15 +3,17 @@ import { useNavigate } from 'react-router-dom';
 
 const Logout = () => {
     const navigate = useNavigate();
+
     const logoutfun = async () =>{
-        const res = await fetch('https://restomanagementserver.onrender.com/logout',{
+        const res = await fetch(`${process.env.REACT_APP_BACKEDN}/logout`,{
             method:'GET',
             credentials:'include',
             headers:{
-                'Origin':['https://restomanagementserver.onrender.com'],
+                'Origin':[`${process.env.REACT_APP_BACKEDN}`],
                 "Content-Type":'application/json'
             }
         })
+        console.log(res);
         await res.json();
         if(res.status===401){
             alert('Logout failed');

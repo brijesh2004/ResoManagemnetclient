@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import '../styling/login.css'
 import { useNavigate} from 'react-router-dom';
+import Bottom from './Bottom';
 
 const Signup = () => {
   const navigate = useNavigate();
@@ -19,11 +20,11 @@ const Signup = () => {
     const {name,email,password , cpassword} = user;
     // console.log(name,email,password,cpassword)
     setRegisterBtn("Registering ...");
-    const res = await fetch("https://restomanagementserver.onrender.com/register" , {
+    const res = await fetch(`${process.env.REACT_APP_BACKEDN}/register` , {
       method:'POST',
       credentials:'include',
       headers:{
-        'Origin':['https://restomanagementserver.onrender.com'],
+        'Origin':[`${process.env.REACT_APP_BACKEDN}`],
         'Content-Type':"application/json"
       },
       body: JSON.stringify({
@@ -50,12 +51,17 @@ const Signup = () => {
     <>
       <div className="login_page_start">
         <h2>Register</h2>
+        <label htmlFor="name" className='label'>Email:</label>
         <input type="text" placeholder='Enter Your Name' name='name' value={user.name} onChange={handleInputs}/><br />
+        <label htmlFor="email" className='label'>Email:</label>
         <input type="email" placeholder='Enter Your Email' name='email' onChange={handleInputs} value={user.email}/><br />
+        <label htmlFor="password" className='label'>Password:</label>
         <input type="password" placeholder='Create The Password' name='password' onChange={handleInputs} value={user.password}/><br />
+        <label htmlFor="cpassword" className='label'>Confirm Password</label>
         <input type="password" placeholder='Enter Again Password' name='cpassword' onChange={handleInputs} value={user.cpassword}/><br />
         <button onClick={registerUser}>{registerbtn}</button>
       </div>
+      <Bottom/>
     </>
   )
 }

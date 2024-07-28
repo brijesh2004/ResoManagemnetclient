@@ -18,11 +18,11 @@ const Breakfast = () => {
   const [price , setPrice] = useState(0);
   const [isloaded , setIsloader] = useState(false);
   const findbreakfast =async () =>{
-    const req = await fetch('https://restomanagementserver.onrender.com/breakfast',{
+    const req = await fetch(`${process.env.REACT_APP_BACKEDN}/breakfast`,{
       method:'GET',
       credentials:'include',
       headers:{
-        'Origin':['https://restomanagementserver.onrender.com'],
+        'Origin':[`${process.env.REACT_APP_BACKEDN}`],
         'Content-Type':'application/json'
       }
     })
@@ -42,11 +42,11 @@ const Breakfast = () => {
   const ordernow = async () =>{
     const {mobile1 , mobile2 , address , pincode}  = payment;
     setPayButton("Paying ...");
-    const res = await fetch('https://restomanagementserver.onrender.com/ordernow',{
+    const res = await fetch(`${process.env.REACT_APP_BACKEDN}/ordernow`,{
       credentials:"include",
       method:'POST',
       headers:{
-        "Origin":['https://restomanagementserver.onrender.com'],
+        "Origin":[`${process.env.REACT_APP_BACKEDN}`],
         "Content-Type":"application/json"
       },
       body:JSON.stringify({
@@ -79,13 +79,13 @@ const Breakfast = () => {
     }
 
    { !isordered&&isloaded&& <div>
-    <center><h1>Breakfast</h1></center>
+    <center><h1 className='font-monospace'>Breakfast</h1></center>
     <div className='breakfast_page'>
        {Array.isArray(cusdata)&&cusdata.map((elem ,index)=>(
-        <div className='container_box'>
-          <h1>{elem.name}</h1>
+        <div className='container_box' key={index}>
           <img src={elem.imageurl} alt="images" />
-          <p>Price :- {elem.price} ₹</p>
+          <h1 className='font-monospace'>{elem.name}</h1>
+          <p className='font-monospace'>Price :- {elem.price} ₹</p>
           <button className='buy_btn' onClick={async ()=>{
           setName(elem.name);
           setPrice(elem.price)
@@ -98,8 +98,8 @@ const Breakfast = () => {
     <br />
     {isordered&&<div className='login_page_start'>
      <h2>Pay On Develery</h2>
-     <input type="text" name=""  value={name} contentEditable="false" disabled="true"/><br />
-      <input type="number" name=""  value={price} contentEditable="false" disabled="true"/> <br />
+     <input type="text" name=""  value={name} contentEditable="false" disabled/><br />
+      <input type="number" name=""  value={price} contentEditable="false" disabled/> <br />
       <input type="number" name="mobile1"  value={payment.mobile1} onChange={InputHandel}  placeholder='Enter Mobile Number' /><br />
       <input type="number" name="mobile2" value={payment.mobile2} onChange={InputHandel}  placeholder='Enter Alternate Mobile Number'/><br />
       <input type="text" name="address" value={payment.address} onChange={InputHandel} placeholder='Enter the Address'/><br />

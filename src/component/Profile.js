@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Loader from './Loader';
+import Bottom from './Bottom';
 
 const Profile = () => {
     const [profile , setProfile] = useState({});
@@ -7,11 +8,11 @@ const Profile = () => {
     const [photo , setPhoto] = useState("");
     const profiledata = async () =>{
       setIsloader(false);
-        const res = await fetch("https://restomanagementserver.onrender.com/profiledata" , {
+        const res = await fetch(`${process.env.REACT_APP_BACKEDN}/profiledata` , {
           method:'GET',
           credentials:"include",
           headers:{
-              "Origin":['https://restomanagementserver.onrender.com'],
+              "Origin":[`${process.env.REACT_APP_BACKEDN}`],
               "Content-Type":"application/json"
           }
         })
@@ -27,11 +28,11 @@ const Profile = () => {
 
       const uploadthephoto = (e) => {
         e.preventDefault();
-        fetch("https://restomanagementserver.onrender.com/profilephoto" ,{
+        fetch(`${process.env.REACT_APP_BACKEDN}/profilephoto` ,{
           method:'POST',
           credentials:'include',
           headers:{
-            'Origin':['https://restomanagementserver.onrender.com'],
+            'Origin':[`${process.env.REACT_APP_BACKEDN}`],
             'Content-Type':'application/json'
           },
           body:JSON.stringify({photo})
@@ -59,9 +60,9 @@ const Profile = () => {
         !isloaded && <Loader/>
       }
       {isloaded&&<div>
-      <form onSubmit={uploadthephoto} className='upload_image'>
+      <form onSubmit={uploadthephoto} className='upload_image mt-5 mb-10'>
       <p>Change the Profile Image</p>
-      <input type="file" name="photo" accept='.jpg .png .jpeg' onChange={HandlePhoto} /><br />
+      <input type="file" name="photo" accept='.jpg, .png, .jpeg' onChange={HandlePhoto} /><br />
       <input type="submit" />
       </form>
       <div className='about_the_user'>
@@ -74,8 +75,7 @@ const Profile = () => {
      {
         Array.isArray(profile.orders) && profile.orders.map((elem ,index)=>(
             // stying in the login .css
-            <div className='order_list'>
-            
+            <div className='order_list' key={index}>
             <p>  Name - {elem.name} </p>
              <p> Price - {elem.price}</p>
              <p>Mobile -  No {elem.mobile1}</p>
@@ -88,6 +88,7 @@ const Profile = () => {
      }
      </div>
      </div>}
+     <Bottom/>
     </>
   )
 }
