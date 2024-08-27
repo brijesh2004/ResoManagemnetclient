@@ -9,6 +9,14 @@ const Home = () => {
 
   return (
     <>
+
+<div className='container text-center my-5'>
+        <h6>Home Delivery Unavailable</h6>
+        <p>This website is for placing orders within our restaurant only.</p>
+        <p>Please order only if you are dining with us.</p>
+
+      </div>
+      
     <center><h1>BreakFast</h1></center>
      <div className='breakfast_page'>
 

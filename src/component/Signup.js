@@ -1,10 +1,12 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import '../styling/login.css'
 import { useNavigate} from 'react-router-dom';
 import Bottom from './Bottom';
+import { useSelector } from 'react-redux';
 
 const Signup = () => {
   const navigate = useNavigate();
+  const login = useSelector((data)=>data.cartData.login);
   const [user , setUser] = useState({
     name:"",email:"",password:"",cpassword:""
   });
@@ -18,7 +20,6 @@ const Signup = () => {
   const registerUser = async (e) => {
     e.preventDefault();
     const {name,email,password , cpassword} = user;
-    // console.log(name,email,password,cpassword)
     setRegisterBtn("Registering ...");
     const res = await fetch(`${process.env.REACT_APP_BACKEDN}/register` , {
       method:'POST',
@@ -33,7 +34,6 @@ const Signup = () => {
     })
     const data =await res.json();
     setRegisterBtn("Register");
-    // console.log(data);
     if(res.status===422){
       alert("User already exist");
     }
@@ -47,6 +47,12 @@ const Signup = () => {
       navigate("/login");
     }
   }
+
+  useEffect(()=>{
+    if(login===true){
+      navigate("/");
+    }
+  })
   return (
     <>
       <div className="login_page_start">
