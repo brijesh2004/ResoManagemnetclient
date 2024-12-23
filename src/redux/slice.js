@@ -57,8 +57,8 @@ const Slice = createSlice({
             state.cart = newCart;
         },
         EmptyCartItem:(state)=>{
-            state.cart = [],
-            state.totalPrice=0
+            state.cart = [];
+            state.totalPrice=0;
         },
         Logind: (state, action) => {
             state.login = action.payload;
