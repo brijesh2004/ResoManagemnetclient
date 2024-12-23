@@ -44,7 +44,6 @@ const Breakfast = () => {
               <img src={elem.imageurl} alt="images" />
               <h1 className='font-monospace'>{elem.name}</h1>
               <p className='font-monospace'>Price :- {elem.price} ₹</p>
-
              <AddToCart elem={elem}/>
             </div>
           ))}

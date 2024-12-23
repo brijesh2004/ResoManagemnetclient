@@ -1,6 +1,8 @@
 import { createSlice} from "@reduxjs/toolkit";
+
+
 const initialState = {
-    cart: [],
+    cart: [cartType],
     login: false,
     totalPrice: 0,
 }
@@ -55,7 +57,8 @@ const Slice = createSlice({
             state.cart = newCart;
         },
         EmptyCartItem:(state)=>{
-            state.cart = []
+            state.cart = [],
+            state.totalPrice=0
         },
         Logind: (state, action) => {
             state.login = action.payload;

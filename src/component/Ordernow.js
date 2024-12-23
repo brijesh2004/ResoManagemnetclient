@@ -42,7 +42,7 @@ const Ordernow = () => {
 
         await res.json();
         if(res.status!==201){
-          alert("Errpr");
+          alert("Error");
         }
         else{
           dispatch(EmptyCartItem())

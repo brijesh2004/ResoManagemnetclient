@@ -78,11 +78,12 @@ const Profile = () => {
     };
     reader.readAsDataURL(e.target.files[0]);
   }
-  useEffect(()=>{
+
+useEffect(()=>{
     if(login===false){
       navigate('/login');
     }
-  },[])
+},[])
   useEffect(() => {
     profiledata();
   }, []);
